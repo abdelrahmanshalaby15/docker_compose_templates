@@ -1,10 +1,15 @@
-version: "3" 
-# Defines which compose version to use
 services:
   # Services line define which Docker images to run. In this case, it will 
 #be MySQL server and WordPress image.
+  mailhog:
+    image: mailhog/mailhog
+    platform: linux/amd64
+    ports:
+      - "1025:1025"
+      - "8025:8025"
   db:
     image: mysql:5.7
+    platform: linux/amd64
     # image: mysql:5.7 indicates the MySQL database container image from 
 #Docker Hub used in this installation.
     restart: always
